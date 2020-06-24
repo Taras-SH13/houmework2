@@ -4,7 +4,7 @@ import java.time.Instant;
 // класс для описания товара
 public class Entity {
 
-    private static Long id; // уникальный номер товара
+    private static Long id=0l; // уникальный номер товара
     private String title; // название товара
     private Instant dateIn; // дата добавления в систему
     private BigDecimal price; // цена товара
