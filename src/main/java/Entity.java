@@ -4,7 +4,7 @@ import java.time.Instant;
 // класс для описания товара
 public class Entity {
 
-    private static Long id=0l; // уникальный номер товара
+    private Long id; // уникальный номер товара
     private String title; // название товара
     private Instant dateIn; // дата добавления в систему
     private BigDecimal price; // цена товара
@@ -13,7 +13,7 @@ public class Entity {
         this.title = title;
         this.dateIn = dateIn;    //todo создать дату добавления в систему
         this.price = price;
-        id++;
+        //todo создать id товара
     }
 
     public Long getId() {
@@ -46,5 +46,17 @@ public class Entity {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + title + '\'' +
+                ", price='" + price + '\'' +
+                //", id='" + id + '\'' +
+                ", date to add=" + dateIn +
+                //", amount=" + amount +
+                '}';
     }
 }
