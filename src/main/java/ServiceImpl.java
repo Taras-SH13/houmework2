@@ -13,7 +13,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public void findEntity(String title) {
-
+    public void findEntity() {
+        System.out.println(entityDao.findAll());
     }
 }

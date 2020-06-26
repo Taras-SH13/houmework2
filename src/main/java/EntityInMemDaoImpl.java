@@ -16,6 +16,6 @@ public class EntityInMemDaoImpl implements Dao {
 
     @Override
     public List<Entity> findAll() throws NetworkException {
-        return null;
+        return database;
     }
 }
