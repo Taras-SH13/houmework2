@@ -4,7 +4,7 @@ import java.util.List;
 public class EntityInMemDaoImpl implements Dao {
 
     static List<Entity> database = new ArrayList<>();  //база данных для товаров
-// проверка на наличие товара и его сохранение.
+// метод для проверки на наличие товара и его сохранение.
     @Override
     public boolean store(Entity entity) throws NetworkException {
         if (!database.contains(entity)) {
@@ -12,5 +12,10 @@ public class EntityInMemDaoImpl implements Dao {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Entity> findAll() throws NetworkException {
+        return null;
     }
 }

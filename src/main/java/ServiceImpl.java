@@ -11,4 +11,9 @@ public class ServiceImpl implements Service {
         entityDao.store(new Entity(title, price));
 
     }
+
+    @Override
+    public void findEntity(String title) {
+
+    }
 }
