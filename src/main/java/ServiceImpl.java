@@ -1,5 +1,4 @@
 import java.math.BigDecimal;
-import java.util.List;
 
 public class ServiceImpl implements Service {
 
@@ -9,17 +8,21 @@ public class ServiceImpl implements Service {
 
     @Override
     public void addNewItem(String title, BigDecimal price) {
-        List<Entity> localDatabase = EntityInMemDaoImpl.database;
+
+        String errorMessage="Недопустимая длинна в названии товара! Товар "+title+" не добавлен!";
+        String errorMessage2="Не уникальное название! Товар "+title+" не добавлен!";
         int len;
         len = title.length();
         if (len < 3 || len > 20) {
-            System.out.println("Недопустимая длинна в названии товара! Товар "+title+" не добавлен!");
+            System.out.println(errorMessage);
             return;
+
+
         }
 
-        for (Entity p : localDatabase) {
+        for (Entity p : EntityInMemDaoImpl.database) {
             if (p.getTitle().equals(title)) {
-                System.out.println("Не уникальное название! Товар "+title+"не добавлен!");
+                System.out.println(errorMessage2);
                 return;
 
             }
