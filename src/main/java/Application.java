@@ -11,6 +11,8 @@ public class Application {
         new ServiceImpl().addNewItem("Acer charger 135w", BigDecimal.valueOf(59));
         new ServiceImpl().addNewItem("HP charger 65w", BigDecimal.valueOf(100));
         new ServiceImpl().addNewItem("Toshiba charger 90w", BigDecimal.valueOf(35));
+        new ServiceImpl().addNewItem("HP", BigDecimal.valueOf(35));
+        new ServiceImpl().addNewItem("Toshiba charger 90w", BigDecimal.valueOf(35));
         new ServiceImpl().findEntity();
     }
 
