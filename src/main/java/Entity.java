@@ -10,10 +10,11 @@ public class Entity {
     private BigDecimal price; // цена товара
 // конструктор
     public Entity(String title,BigDecimal price) {
+        this.id=(long)(Math.random()*1000000);
         this.title = title;
-        this.dateIn = dateIn;    //todo создать дату добавления в систему
+        this.dateIn = Instant.now();
         this.price = price;
-        //todo создать id товара
+
     }
 
     public Long getId() {
