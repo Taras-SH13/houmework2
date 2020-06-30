@@ -2,6 +2,8 @@ import org.junit.Assert;
 
 import java.math.BigDecimal;
 
+
+
 class ServiceImplTest {
 
     @org.junit.jupiter.api.Test
@@ -25,5 +27,20 @@ class ServiceImplTest {
         service.addNewItem(titleOfEntityTest, priceOfEntityTest);
         //Then
         Assert.assertTrue(EntityInMemDaoImpl.database.isEmpty());
+    }
+    @org.junit.jupiter.api.Test
+    public void shoodNoAddRepeatingItem(){
+        //Given
+        String titleOfEntityTest = "Asus carger 90w";
+        BigDecimal priceOfEntityTest = BigDecimal.valueOf(56);
+        String titleOfEntityTest2 = "Asus carger 90w";
+        BigDecimal priceOfEntityTest2 = BigDecimal.valueOf(56);
+        ServiceImpl service = new ServiceImpl();
+        //When
+        service.addNewItem(titleOfEntityTest,priceOfEntityTest);
+        service.addNewItem(titleOfEntityTest2,priceOfEntityTest2);
+        //Then
+        Assert.assertEquals(1,EntityInMemDaoImpl.database.size());
+
     }
 }
