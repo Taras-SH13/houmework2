@@ -3,13 +3,14 @@ import java.math.BigDecimal;
 public class ServiceImpl implements Service {
 
 
-    private Dao entityDao = new EntityInMemDaoImpl();
+    //private Dao entityDao = new EntityInMemDaoImpl();
+    private EntityInMemDaoImpl entityInMemDao=new EntityInMemDaoImpl();
 
 
     @Override
     public void addNewItem(String title, BigDecimal price) throws NetworkException
     {
-        if(EntityInMemDaoImpl.database==null){
+        if(entityInMemDao.getDatabase()==null){
             throw new NetworkException("Соединение с базой данных - отсутствует!");
 
         }
@@ -24,25 +25,25 @@ public class ServiceImpl implements Service {
 
         }
 
-        for (Entity p : EntityInMemDaoImpl.database) {
+        for (Entity p : entityInMemDao.getDatabase()) {
             if (p.getTitle().equals(title)) {
                 System.out.println(errorMessage2);
                 return;
 
             }
         }
-        entityDao.store(new Entity(title, price));
+        entityInMemDao.store(new Entity(title, price));
     }
 
     @Override
     public void findEntity() throws NetworkException
 
     {
-        if(EntityInMemDaoImpl.database==null){
+        if(entityInMemDao.getDatabase()==null){
             throw new NetworkException("Соединение с базой данных - отсутствует!");
 
         }
-        System.out.println(entityDao.findAll());
+        System.out.println(entityInMemDao.findAll());
     }
 }
 

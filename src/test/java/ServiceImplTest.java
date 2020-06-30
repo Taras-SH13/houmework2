@@ -15,7 +15,7 @@ class ServiceImplTest {
         //When
         service.addNewItem(titleOfEntityTest, priceOfEntityTest);
         //Then
-        Assert.assertTrue(EntityInMemDaoImpl.database.isEmpty());
+        Assert.assertTrue(EntityInMemDaoImpl.getDatabase().isEmpty());
     }
 
     @org.junit.jupiter.api.Test
@@ -27,7 +27,7 @@ class ServiceImplTest {
         //When
         service.addNewItem(titleOfEntityTest, priceOfEntityTest);
         //Then
-        Assert.assertTrue(EntityInMemDaoImpl.database.isEmpty());
+        Assert.assertTrue(EntityInMemDaoImpl.getDatabase().isEmpty());
     }
 
     @org.junit.jupiter.api.Test
@@ -42,7 +42,7 @@ class ServiceImplTest {
         service.addNewItem(titleOfEntityTest, priceOfEntityTest);
         service.addNewItem(titleOfEntityTest2, priceOfEntityTest2);
         //Then
-        Assert.assertEquals(1, EntityInMemDaoImpl.database.size());
+        Assert.assertEquals(1, EntityInMemDaoImpl.getDatabase().size());
 
     }
 
