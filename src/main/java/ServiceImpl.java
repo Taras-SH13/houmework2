@@ -7,8 +7,12 @@ public class ServiceImpl implements Service {
 
 
     @Override
-    public void addNewItem(String title, BigDecimal price) {
+    public void addNewItem(String title, BigDecimal price) throws NetworkException
+    {
+        if(EntityInMemDaoImpl.database==null){
+            throw new NetworkException("Соединение с базой данных - отсутствует!");
 
+        }
         String errorMessage="Недопустимая длинна в названии товара! Товар "+title+" не добавлен!";
         String errorMessage2="Не уникальное название! Товар "+title+" не добавлен!";
         int len;
@@ -31,7 +35,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public void findEntity() {
+    public void findEntity() throws NetworkException
+
+    {
+        if(EntityInMemDaoImpl.database==null){
+            throw new NetworkException("Соединение с базой данных - отсутствует!");
+
+        }
         System.out.println(entityDao.findAll());
     }
 }
