@@ -3,9 +3,16 @@ import java.math.BigDecimal;
 public class ServiceImpl implements Service {
 
 
-    //private Dao entityDao = new EntityInMemDaoImpl();
-    private EntityInMemDaoImpl entityInMemDao=new EntityInMemDaoImpl();
 
+    private EntityInMemDaoImpl entityInMemDao;
+
+    public EntityInMemDaoImpl getEntityInMemDao() {
+        return entityInMemDao;
+    }
+
+    public ServiceImpl(EntityInMemDaoImpl entityInMemDao) {
+        this.entityInMemDao = entityInMemDao;
+    }
 
     @Override
     public void addNewItem(String title, BigDecimal price) throws NetworkException

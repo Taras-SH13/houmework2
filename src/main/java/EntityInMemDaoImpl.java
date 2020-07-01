@@ -1,17 +1,15 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class EntityInMemDaoImpl implements Dao {
 
-    private static List<Entity> database = new ArrayList<Entity>();
-   //private static List<Entity> database = null; //база данных для товаров отсутствует
+    private  List<Entity> database;
 
-    public static List<Entity> getDatabase() {
+    public  List<Entity> getDatabase() {
         return database;
     }
 
-    public static void setDatabase(List<Entity> database) {
-        EntityInMemDaoImpl.database = database;
+    public EntityInMemDaoImpl(List<Entity> database) {
+        this.database = database;
     }
 
     // метод для проверки на наличие товара и его сохранение.
