@@ -8,11 +8,13 @@ public class Entity {
     private String title; // название товара
     private Instant dateIn; // дата добавления в систему
     private BigDecimal price; // цена товара
+
 // конструктор
+
     public Entity(String title,BigDecimal price) {
-        this.id=(long)(Math.random()*1000000);
+        this.id=(long)(Math.random()*1000000); // генерация id товара
         this.title = title;
-        this.dateIn = Instant.now();
+        this.dateIn = Instant.now(); // определяем время добавления в систему
         this.price = price;
 
     }
