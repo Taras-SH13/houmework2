@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
 
 // класс для описания товара
 public class Entity {
@@ -61,5 +62,17 @@ public class Entity {
                 ", date to add=" + dateIn +
                 //", amount=" + amount +
                 '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Entity entity = (Entity) o;
+        return getId().equals(entity.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }
